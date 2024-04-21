@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="x-icon" href="wavy.io.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wavy</title>
+  <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /*  import google fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+    body{
+      background: linear-gradient(120deg,#000, #3867d6);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* custom scroll bar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* all similar content styling codes */
+    section {
+        padding: 100px 0;
+    }
+
+    .max-width {
+        max-width: 1300px;
+        padding: 0 80px;
+        margin: auto;
+    }
+
+    .about,
+    .services,
+    .skills,
+    .teams,
+    .contact,
+    footer {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .about .about-content,
+    .services .serv-content,
+    .skills .skills-content,
+    .contact .contact-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    section .title {
+        position: relative;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 500;
+        margin-bottom: 60px;
+        padding-bottom: 20px;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    
+    /* navbar styling */
+    .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        padding: 30px 0;
+        font-family: 'Ubuntu', sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    .navbar.sticky {
+        padding: 15px 0;
+        background: #3867d6;
+    }
+
+    .navbar .max-width {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar .logo a {
+        color: #fff;
+        font-size: 35px;
+        font-weight: 600;
+    }
+
+    .navbar .logo a span {
+        color: #3867d6;
+        transition: all 0.3s ease;
+    }
+
+    .navbar.sticky .logo a span {
+        color: #fff;
+    }
+
+    .navbar .menu li {
+        list-style: none;
+        display: inline-block;
+    }
+
+    .navbar .menu li a {
+        display: block;
+        color: #fff;
+        font-size: 1.3em;
+        font-weight: 500;
+        margin-left: 35px;
+        transition: color 0.3s ease;
+    }
+
+    .navbar .menu li a:hover {
+        color: #3867d6;
+    }
+
+    .navbar.sticky .menu li a:hover {
+        color: #fff;
+    }
+
+    /* menu btn styling */
+    .menu-btn {
+        color: #fff;
+        font-size: 23px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .scroll-up-btn {
+        position: fixed;
+        height: 45px;
+        width: 42px;
+        background: #3867d6;
+        right: 30px;
+        bottom: 10px;
+        text-align: center;
+        line-height: 45px;
+        color: #fff;
+        z-index: 9999;
+        font-size: 30px;
+        border-radius: 6px;
+        border-bottom-width: 2px;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .scroll-up-btn.show {
+        bottom: 30px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .scroll-up-btn:hover {
+        filter: brightness(90%);
+    }
+
+
+    /* home section styling */
+    .home {
+        display: flex;
+        background: url("Untitled-1.jpg") no-repeat center;
+        height: 100vh;
+        color: #fff;
+        min-height: 500px;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    .home .max-width {
+        width: 100%;
+        display: flex;
+    }
+
+    .home .max-width .row {
+        margin-right: 0;
+    }
+
+    .home .home-content .text-1 {
+        font-size: 27px;
+        margin-left: -81px;
+    }
+
+    .home .home-content .text-2 {
+        font-size: 75px;
+        font-weight: 600;
+        margin-left: -81px;
+    }
+
+    .home .home-content .text-3 {
+        font-size: 40px;
+        margin: 5px -80px;
+    }
+
+    .home .home-content .text-3 span {
+        color: #3867d6;
+        font-weight: 500;
+    }
+
+    .home .home-content a {
+        display: inline-block;
+        background: #3867d6;
+        color: #fff;
+        font-size: 25px;
+        padding: 12px 36px;
+        margin-top: 20px;
+        font-weight: 400;
+        border-radius: 6px;
+        border: 2px solid #3867d6;
+        transition: all 0.3s ease;
+    }
+
+    .home .home-content a:hover {
+        color: #3867d6;
+        background: none;
+    }
+
+
+    .project-card a {
+        display: inline-block;
+        background: #3867d6;
+        color: #fff;
+        font-size: 25px;
+        padding: 12px 36px;
+        margin-top: 20px;
+        font-weight: 400;
+        border-radius: 6px;
+        border: 2px solid #3867d6;
+        transition: all 0.3s ease;
+    }
+
+    .project-card a:hover {
+        color: #3867d6;
+        background: none;
+    }
+
+    /* about section styling */
+
+
+    .about .about-content .left {
+        width: 45%;
+    }
+
+    .about .about-content .left img {
+        height: 350px;
+        width: 350px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .about .about-content .right {
+        width: 55%;
+    }
+
+    .about .about-content .right .text {
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .about .about-content .right .text span {
+        color: #3867d6;
+    }
+
+    .about .about-content .right p {
+        text-align: justify;
+    }
+
+    .about .about-content .right a {
+        display: inline-block;
+        background: #24a50b;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 10px 30px;
+        margin-top: 20px;
+        border-radius: 6px;
+        border: 2px solid #24a50b;
+        transition: all 0.3s ease;
+    }
+
+    .about .about-content .right a:hover {
+        color: #3867d6;
+        background: none;
+    }
+
+    /* services section styling */
+    .services,
+    .teams {
+        color: #fff;
+        background: linear-gradient(to bottom, #02054c, #0b1926);
+    }
+
+    .services .title::before,
+    .teams .title::before {
+        background: #fff;
+    }
+
+    .services .title::after,
+    .teams .title::after {
+        background: linear-gradient(to bottom, #02054c, #0b1926);
+
+    }
+
+    .services .serv-content .card {
+        width: calc(33% - 20px);
+        background: linear-gradient(to bottom right, #0b1926, #02054c);;
+        text-align: center;
+        border-radius: 6px;
+        padding: 50px 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+
+
+    .services .serv-content .card .box {
+        transition: all 0.3s ease;
+    }
+
+    .services .serv-content .card:hover .box {
+        transform: scale(1.05);
+    }
+
+    .services .serv-content .card i {
+        font-size: 50px;
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+
+    .services .serv-content .card:hover i {
+        color: #fff;
+    }
+
+    .services .serv-content .card .text {
+        font-size: 25px;
+        font-weight: 500;
+        margin: 10px 0 7px 0;
+    }
+
+    /* skills section styling */
+
+
+
+    .skills .skills-content .column {
+        width: calc(50% - 30px);
+    }
+
+    .skills .skills-content .left .text {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .skills .skills-content .left p {
+        text-align: justify;
+    }
+
+    .skills .skills-content .left a {
+        display: inline-block;
+        background: #3867d6;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 8px 16px;
+        margin-top: 20px;
+        border-radius: 6px;
+        border: 2px solid #3867d6;
+        transition: all 0.3s ease;
+    }
+
+    .skills .skills-content .left a:hover {
+        color: #3867d6;
+        background: none;
+    }
+
+    .skills .skills-content .right .bars {
+        margin-bottom: 15px;
+    }
+
+    .skills .skills-content .right .info {
+        display: flex;
+        margin-bottom: 5px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .skills .skills-content .right span {
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .skills .skills-content .right .line {
+        height: 5px;
+        width: 100%;
+        background: lightgrey;
+        position: relative;
+    }
+
+    .skills .skills-content .right .line::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #3867d6;
+    }
+
+    .skills-content .right .html::before {
+        width: 90%;
+    }
+
+    .skills-content .right .css::before {
+        width: 60%;
+    }
+
+    .skills-content .right .js::before {
+        width: 80%;
+    }
+
+    .skills-content .right .php::before {
+        width: 50%;
+    }
+
+    .skills-content .right .mysql::before {
+        width: 70%;
+    }
+
+    /* teams section styling */
+    .serv-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .serv-content2 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+
+    .teams .carousel .card {
+        background: linear-gradient(to bottom right, #0b1926, #02054c);
+
+        border: 1px double #fff;
+        border-radius: 6px;
+        padding: 25px 35px;
+        text-align: center;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: auto;
+    }
+
+    .card::after {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    dt {
+        text-decoration: #fff;
+    }
+
+    h2 {
+        color: #3867d6;
+        text-decoration: #fff;
+    }
+
+    .card:hover {
+        transform: scale(1.02, 1.02);
+        -webkit-transform: scale(1.02, 1.02);
+        backface-visibility: hidden;
+        will-change: transform;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .75) !important;
+    }
+
+    .card:hover::after {
+        opacity: 1;
+    }
+
+    .card:hover .btn-outline-primary {
+        color: white;
+        background: #007bff;
+    }
+
+
+    .teams .carousel .card .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .teams .carousel .card:hover .box {
+        transform: scale(1.05);
+    }
+
+    .teams .carousel .card .text {
+        font-size: 25px;
+        font-weight: 500;
+        margin: 10px 0 7px 0;
+    }
+
+    .teams .carousel .card img {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid #3867d6;
+        transition: all 0.3s ease;
+    }
+
+    .teams .carousel .card:hover img {
+        border-color: #fff;
+    }
+
+    .owl-dots {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .owl-dot {
+        height: 13px;
+        width: 13px;
+        margin: 0 5px;
+        outline: none !important;
+        border-radius: 50%;
+        border: 2px solid #3867d6 !important;
+        transition: all 0.3s ease;
+    }
+
+    .owl-dot.active {
+        width: 35px;
+        border-radius: 14px;
+    }
+
+    .owl-dot.active,
+    .owl-dot:hover {
+        background: #3867d6 !important;
+    }
+
+    /* contact section styling */
+
+
+    .contact .contact-content .column {
+        width: calc(50% - 30px);
+    }
+
+    .contact .contact-content .text {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .contact .contact-content .left p {
+        text-align: justify;
+    }
+
+    .contact .contact-content .left .icons {
+        margin: 10px 0;
+    }
+
+    .contact .contact-content .row {
+        display: flex;
+        height: 65px;
+        align-items: center;
+    }
+
+    .contact .contact-content .row .info {
+        margin-left: 30px;
+    }
+
+    .contact .contact-content .row i {
+        font-size: 25px;
+        color: #3867d6;
+    }
+
+    .contact .contact-content .info .head {
+        font-weight: 500;
+    }
+
+    .contact .contact-content .info .sub-title {
+        color: #333;
+    }
+
+    .contact .right form .fields {
+        display: flex;
+    }
+
+    .contact .right form .field,
+    .contact .right form .fields .field {
+        height: 45px;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .contact .right form .textarea {
+        height: 80px;
+        width: 100%;
+    }
+
+    .contact .right form .name {
+        margin-right: 10px;
+    }
+
+    .contact .right form .field input,
+    .contact .right form .textarea textarea {
+        height: 100%;
+        width: 100%;
+        border: 1px solid lightgrey;
+        border-radius: 6px;
+        outline: none;
+        padding: 0 15px;
+        font-size: 17px;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    .contact .right form .field input:focus,
+    .contact .right form .textarea textarea:focus {
+        border-color: #b3b3b3;
+    }
+
+    .contact .right form .textarea textarea {
+        padding-top: 10px;
+        resize: none;
+    }
+
+    .contact .right form .button-area {
+        display: flex;
+        align-items: center;
+    }
+
+    .right form .button-area button {
+        color: #fff;
+        display: block;
+        width: 160px !important;
+        height: 45px;
+        outline: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 6px;
+        cursor: pointer;
+        flex-wrap: nowrap;
+        background: #3867d6;
+        border: 2px solid #3867d6;
+        transition: all 0.3s ease;
+    }
+
+    .right form .button-area button:hover {
+        color: #3867d6;
+        background: none;
+    }
+
+    /* footer section styling */
+    footer {
+        background: linear-gradient(to bottom, #02054c, #0b1926);
+        padding: 15px 23px;
+        color: #fff;
+        text-align: center;
+    }
+
+    footer span a {
+        color: #3867d6;
+        text-decoration: none;
+    }
+
+    footer span a:hover {
+        text-decoration:;
+    }
+
+    .c {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .c:hover {
+        text-decoration: #FFF;
+    }
+
+
+    /* responsive media query start */
+    @media (max-width: 1104px) {
+        .about .about-content .left img {
+            height: 350px;
+            width: 350px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .max-width {
+            padding: 0 50px;
+        }
+    }
+
+    @media (max-width: 947px) {
+        .menu-btn {
+            display: block;
+            z-index: 999;
+        }
+
+        .menu-btn i.active:before {
+            content: "\f00d";
+        }
+
+        .navbar .menu {
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            left: -100%;
+            top: 0;
+            background: linear-gradient(to bottom, #02054c, #0b1926);
+            text-align: center;
+            padding-top: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .menu.active {
+            left: 0;
+        }
+
+        .navbar .menu li {
+            display: block;
+        }
+
+        .navbar .menu li a {
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 25px;
+        }
+
+        .home .home-content .text-2 {
+            font-size: 65px;
+        }
+
+        .home .home-content .text-3 {
+            font-size: 35px;
+        }
+
+        .home .home-content a {
+            font-size: 23px;
+            padding: 10px 30px;
+        }
+
+        .max-width {
+            max-width: 930px;
+        }
+
+        .about .about-content .column {
+            width: 100%;
+        }
+
+        .about .about-content .left {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 60px;
+        }
+
+        .about .about-content .right {
+            flex: 100%;
+        }
+
+        .services .serv-content .card {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+        }
+
+        .skills .skills-content .column,
+        .contact .contact-content .column {
+            width: 100%;
+            margin-bottom: 35px;
+        }
+    }
+
+    @media (max-width: 690px) {
+        .max-width {
+            padding: 0 23px;
+        }
+
+        .home .home-content .text-2 {
+            font-size: 60px;
+        }
+
+        .home .home-content .text-3 {
+            font-size: 32px;
+        }
+
+        .home .home-content a {
+            font-size: 20px;
+        }
+
+        .services .serv-content .card {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .home .home-content .text-2 {
+            font-size: 50px;
+        }
+
+        .home .home-content .text-3 {
+            font-size: 27px;
+        }
+
+        .about .about-content .right .text,
+        .skills .skills-content .left .text {
+            font-size: 19px;
+        }
+
+        .contact .right form .fields {
+            flex-direction: column;
+        }
+
+        .contact .right form .name,
+        .contact .right form .email {
+            margin: 0;
+        }
+
+        .right form .error-box {
+            width: 150px;
+        }
+
+        .scroll-up-btn {
+            right: 15px;
+            bottom: 15px;
+            height: 38px;
+            width: 35px;
+            font-size: 23px;
+            line-height: 38px;
+        }
+    }
+    .services .card .box a{
+        background-color: #3867d6;
+        border: 2px solid #3867d6;
+    }
+    .card a {
+        display: inline-block;
+        background: #3867d6;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 10px 30px;
+        margin-top: 20px;
+        border-radius: 6px;
+        border: 2px solid #3867d6;
+        transition: all 0.3s ease;
+    }
+
+    .card a:hover {
+        color: #3867d6;
+        background: none;
+    }
+    .imgg {
+      position: absolute;
+      width: 600px;
+      height: 300px;
+      top: 200px; 
+      left: 800px
+    }
+    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+</head>
+
+<body>
+  <div class="scroll-up-btn">
+    <i class="fas fa-angle-up"></i>
+  </div>
+  <nav class="navbar">
+    <div class="max-width">
+      <div class="logo"><a href="#home"><span>Wavy</span></a></div>
+      <ul class="menu">
+        <li><a href="#services" class="menu-btn">Our Services</a></li>
+        <li><a href="#about" class="menu-btn">About Us</a></li>
+         <li><a href="https://wa.link/os6obf" class="menu-btn">Discuss Project</a></li>
+        <li><a href="#skills" class="menu-btn">Why Wavy ?</a></li>
+        <li><a href="#contact" class="menu-btn">Contact Us</a></li>
+      </ul>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- home section start -->
+  <section class="home" id="home">
+    <div class="max-width">
+      <div class="home-content">
+        <div class="text-1">Welcome to</div>
+        <div class="text-2">Wavy</div>
+        <div class="text-3">We Provide <span class="typing"></span></div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <img class="imgg" src="wavy.io.png" alt="Image not compatible with your browser version">
+  </section>
+
+
+  <!-- services section start -->
+  <section class="services" id="services">
+    <div class="max-width">
+      <h2 class="title">Our Services</h2>
+      <div class="serv-content">
+        <div class="card">
+          <div class="box">
+            <a href="https://wa.link/c4mlrq"><i class="fa-light fa-webhook"></i></a>
+            <div class="text">API Development</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="box">
+            <a href="https://wa.link/3sw286"> <i class="fa-light fa-webhook"></i></a>
+            <div class="text">Designing</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="box">
+            <a href="https://wa.link/lgaxj6"><i class="fa-light fa-webhook"></i></a>
+            <div class="text">Content Creation</div>
+          </div>
+        </div>
+      </div>
+      <div class="serv-content">
+        <div class="card">
+          <div class="box">
+            <a href="https://wa.link/9nsjqn"><i class="fa-light fa-webhook"></i></a>
+            <div class="text">Website Development</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="box">
+            <a href="https://wa.link/wq0bd4"><i class="fa-light fa-webhook"></i></i></a>
+            <div class="text">Consulting and Strategy</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="box">
+            <a href="https://wa.link/n7923x"><i class="fa-light fa-webhook"></i></a>
+            <div class="text">Analytics and Reporting</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- about section start -->
+
+  <section class="about" id="about" style="background: #02054c; color: #fff;">
+      <div class="max-width">
+          <h2 class="title">About us</h2>
+          <div class="about-content">
+              <div class="column right">
+                  <p>
+                  At Wavy, we believe in empowering businesses with a strong online presence and captivating content. Founded in April 2024 by Akhil Goel, our company is driven by a passion for innovation and creativity. With a focus on website development, content creation, designing, API Development, Consulting & Strategy and Analytics & Reporting we are committed to helping our clients stand out in the digital landscape.<br><br>
+                  <span style="color: #3867d6; font-size: 1.4em;"><b>Our mission</b></span> <br><br>At Wavy is to provide unparalleled digital solutions tailored to the unique needs of each client. Whether you're a small startup or a large corporation, we are dedicated to delivering top-notch services that exceed expectations and drive results.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+  <!-- skills section start -->
+  <section class="skills" id="skills" style="background: linear-gradient(to bottom, #02054c, #0b1926); color: #fff;">
+    <div class="max-width">
+      <h2 class="title">But Why To Choose Wavy</h2>
+      <div class="skills-content">
+        <div class="column left">
+          <ul>
+            <dl>
+              <li>
+                <dt><b>Innovative Solutions Powered by AI:</b></dt>
+                <dd>At Wavy, we leverage cutting-edge AI technology to enhance our productivity and deliver innovative solutions to our clients</dd>
+              </li>
+<br>
+              <li>
+                <dt><b>Continuous Learning and Adaptability:</b></dt>
+                <dd>In an ever-evolving digital landscape, staying ahead of the curve is crucial. At Wavy, we are committed to continuous learning and adaptability, constantly refining our skills and staying updated on the latest trends and technologies</dd>
+              </li>
+<br>
+              <li>
+                <dt><b>Personalized Service, Tailored to You:</b></dt>
+                <dd>We understand that every business is unique, with its own goals, challenges, and opportunities. That's why we take a personalized approach to every project, taking the time to understand your specific requirements and objectives. Whether you're a startup or a seasoned enterprise, we tailor our services to align with your vision and objectives, ensuring a bespoke solution that fits your needs perfectly.</dd>
+              </li>
+<br>
+              <li>
+                <dt><b>Commitment to Excellence and Client Satisfaction:</b></dt>
+                <dd>At Wavy, excellence is not just a goal – it's a commitment. We hold ourselves to the highest standards of quality and professionalism, we are dedicated to exceeding our clients' expectations and ensuring their complete satisfaction every step of the way. With Wavy, you can trust that your digital success is our top priority.</dd>
+              </li>
+            </dl>
+          </ul>
+
+
+        </div>
+        <div class="column right">
+          <table style="width: 100%; max-width: 600px; margin: 0 auto;">
+            <tr>
+              <td style="text-align: center;">
+                <img src="./result.jpg" alt="" style="max-width: 100%; height: auto; border-radius: 12px;">
+              </td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact section start -->
+  <section class="contact" id="contact"
+    style="background-image: url(map-image.png); background-size: cover; color: #fff;">
+    <div class="max-width">
+      <h2 class="title">Contact Us</h2>
+      <div class="contact-content">
+        <p>Dear Client, <br>We would love the opportunity to discuss how our packages can be tailored to meet
+          your exact needs
+          and objectives. Please feel free to reach out to schedule a consultation at your earliest
+          convenience. <br>
+
+          Thank you for considering Wavy for your social media management needs. We look forward to the
+          possibility of collaborating with you and helping you achieve your digital marketing goals. <br>
+
+          Warm regards, <br>
+
+          Team Wavy <br>
+        </p>
+        <div class="column left">
+          <!-- ... existing content ... -->
+          <div class="icons">
+            <!-- YouTube -->
+
+            <!-- GitHub -->
+
+            <!-- Email -->
+            <div class="row">
+              <i class="fas fa-envelope"></i>
+              <div class="info">
+                <div class="head">Email</div>
+                <div class="sub-title"><a target="_blank" class="c"
+                    href="mailto:reach.wavy@gmail.com">reach.wavy.io@gmail.com</a>
+                </div>
+              </div>
+            </div>
+            <!-- Phone -->
+            <div class="row">
+              <i class="fab fa-whatsapp"></i>
+              <div class="info">
+                <div class="head">WhatsApp</div>
+                <div class="sub-title"><a href="https://wa.me/+919499145221" target="_blank" class="c">+91 9499 145
+                    221</a></div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- Call -->
+          <div class="row">
+            <i class="fas fa-phone" style="transform: scaleX(-1);"></i>
+            <div class="info">
+              <div class="head">Call</div>
+              <div class="sub-title"><a href="tel:+91 9499 145 221" class="c">+91 9499 145 221</a>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="column right">
+          <div class="row">
+            <i class="fas fa-globe"></i> <!-- Globe icon added here -->
+
+            <div class="info">
+              <div class="head">Website</div>
+              <div class="sub-title"><a target="_blank" href="https://www.wavy.com" class="c">wavy.com</a></div>
+            </div>
+          </div>
+          <div class="row">
+            <i class="fab fa-linkedin"></i> <!-- Globe icon added here -->
+
+            <div class="info">
+              <div class="head">LinkedIn</div>
+              <div class="sub-title"><a target="_blank" href="https://www.linkedin.com/company/wavy"
+                  class="c">Wavy</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+  <!-- footer section start -->
+  <footer>
+    <span class="far fa-copyright"></span> Wavy 2024 All rights reserved.</span><br>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            // sticky navbar on scroll script
+            if (this.scrollY > 20) {
+                $('.navbar').addClass("sticky");
+            } else {
+                $('.navbar').removeClass("sticky");
+            }
+
+            // scroll-up button show/hide script
+            if (this.scrollY > 500) {
+                $('.scroll-up-btn').addClass("show");
+            } else {
+                $('.scroll-up-btn').removeClass("show");
+            }
+        });
+
+        // slide-up script
+        $('.scroll-up-btn').click(function () {
+            $('html').animate({ scrollTop: 0 });
+            // removing smooth scroll on slide-up button click
+            $('html').css("scrollBehavior", "auto");
+        });
+
+        $('.navbar .menu li a').click(function () {
+            // applying again smooth scroll on menu items click
+            $('html').css("scrollBehavior", "smooth");
+        });
+
+        // toggle menu/navbar script
+        $('.menu-btn').click(function () {
+            $('.navbar .menu').toggleClass("active");
+            $('.menu-btn i').toggleClass("active");
+        });
+
+        // typing text animation script
+        var typed = new Typed(".typing", {
+            strings: ["Website Development", "Content Creation", "Designing", "API Development", "Consulting and Strategy", 
+                      "Analytics and Reporting"],
+            typeSpeed: 100,
+            backSpeed: 30,
+            loop: true
+        });
+
+        var typed = new Typed(".typing-2", {
+            strings: ["Website Development", "Content Creation", "Designing", "API Development", "Consulting and Strategy", 
+            "Analytics and Reporting"],
+            typeSpeed: 100,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // owl carousel script
+        $('.carousel').owlCarousel({
+            margin: 20,
+            loop: true,
+            autoplay: true,
+            autoplayTimeOut: 2000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                600: {
+                    items: 2,
+                    nav: false
+                },
+                1000: {
+                    items: 3,
+                    nav: false
+                }
+            }
+        });
+    });
+  </script>
+</body>
+
+</html>
